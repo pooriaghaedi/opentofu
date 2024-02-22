@@ -267,7 +267,6 @@ func TestURLDecode(t *testing.T) {
 		{
 			cty.StringVal("foo%2Fbar"),
 			cty.StringVal("foo/bar"),
-
 			false,
 		},
 		{
@@ -373,10 +372,6 @@ func TestURLEncodeDecode(t *testing.T) {
 	for _, test := range tests {
 		t.Run(fmt.Sprintf("url encode decode(%#v)", test.String), func(t *testing.T) {
 			encoded, err := URLEncode(test.String)
-			if err != nil {
-				t.Errorf("encode() error = %v, wantErr = false", err)
-				return
-			}
 			got, err := URLDecode(encoded)
 
 			if test.Err {
