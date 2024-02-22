@@ -265,8 +265,9 @@ func TestURLDecode(t *testing.T) {
 			false,
 		},
 		{
-			cty.StringVal("foo/bar"),
 			cty.StringVal("foo%2Fbar"),
+			cty.StringVal("foo/bar"),
+
 			false,
 		},
 		{
@@ -364,7 +365,7 @@ func TestURLEncodeDecode(t *testing.T) {
 		},
 		{
 			cty.StringVal("foo%00, bar!"),
-			cty.StringVal("foo, bar!"),
+			cty.StringVal("foo%00, bar!"),
 			false,
 		},
 	}
